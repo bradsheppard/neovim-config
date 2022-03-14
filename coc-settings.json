@@ -1,0 +1,15 @@
+{
+	"python.jediPath": "/home/brad/.local/lib/python3.7/site-packages",
+	"languageserver": {
+		"terraform": {
+			"command": "terraform-lsp",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	}
+}
