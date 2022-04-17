@@ -1,5 +1,6 @@
 set tabstop=4
 set shiftwidth=4
+set expandtab
 
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
@@ -15,6 +16,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
 let g:embark_terminal_italics = 1
@@ -42,32 +44,52 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'gruvbox-community/gruvbox'
-Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+
+Plug 'nvim-treesitter/nvim-treesitter'
 
 "------------------------ COC ------------------------
 " coc for tslinting, auto complete and prettier
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}" coc extensions
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-python', 'coc-tailwindcss']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-python', 'coc-tailwindcss', 'coc-rust-analyzer', 'coc-pairs']
 
-"------------------------ VIM TSX ------------------------
-" by default, if you open tsx file, neovim does not show syntax colors
-" vim-tsx will do all the coloring for jsx in the .tsx file
-Plug 'ianks/vim-tsx'"------------------------ VIM TSX ------------------------
-" by default, if you open tsx file, neovim does not show syntax colors
-" typescript-vim will do all the coloring for typescript keywords
-Plug 'leafgarland/typescript-vim'"------------------------ THEME ------------------------
-" most importantly you need a good color scheme to write good code :D
 Plug 'dikiaap/minimalist'
 
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
-" == VIMPLUG END ================================" == AUTOCMD ================================ 
-" by default .ts file are not identified as typescript and .tsx files are not
-" identified as typescript react file, so add following
-au BufNewFile,BufRead *.ts setlocal filetype=typescript
-au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
-" == AUTOCMD END ================================
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- List of parsers to ignore installing
+  ignore_install = { "javascript" },
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = { "c", "rust" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true 
+  }
+}
+EOF
 
 set t_Co=256
 set background=dark
