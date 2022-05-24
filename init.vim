@@ -50,7 +50,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 "------------------------ COC ------------------------
 " coc for tslinting, auto complete and prettier
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}" coc extensions
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-python', 'coc-tailwindcss', 'coc-rust-analyzer', 'coc-pairs']
+let g:coc_global_extensions = ['coc-eslint', 'coc-pyright', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-tailwindcss', 'coc-rust-analyzer', 'coc-pairs']
 
 Plug 'dikiaap/minimalist'
 
@@ -60,9 +60,7 @@ call plug#end()
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
-
+  ensure_installed = { "c", "lua", "rust" },
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
@@ -85,9 +83,6 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
-  indent = {
-    enable = true 
-  }
 }
 EOF
 
@@ -104,6 +99,8 @@ let g:embark_terminal_italics = 1
 
 " ===COC CONFIG
 " TextEdit might fail if hidden is not set.
+let g:coc_disable_transparent_cursor = 1
+
 set hidden
 
 " Some servers have issues with backup files, see #649.

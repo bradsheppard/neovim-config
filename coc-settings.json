@@ -1,5 +1,4 @@
 {
-	"python.jediPath": "/home/brad/.local/lib/python3.7/site-packages",
 	"languageserver": {
 		"terraform": {
 			"command": "terraform-lsp",
@@ -11,5 +10,15 @@
 			"initializationOptions": {},
 			"settings": {}
 		}
-	}
+	},
+	"pairs.enableCharacters": [
+		"(",
+		"[",
+		"{",
+		"'",
+		"\"",
+		"`"
+	],
+	"suggest.maxCompleteItemCount": 20,
+    "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"]
 }
