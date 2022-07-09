@@ -1,6 +1,7 @@
 " ===COC CONFIG
 " TextEdit might fail if hidden is not set.
 let g:coc_disable_transparent_cursor = 1
+let g:coc_global_extensions = ['coc-eslint', 'coc-pyright', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-tailwindcss', 'coc-rust-analyzer', 'coc-pairs']
 
 set hidden
 

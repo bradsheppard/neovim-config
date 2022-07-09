@@ -19,6 +19,7 @@
 		"\"",
 		"`"
 	],
+    "python.analysis.diagnosticMode": "workspace",
 	"suggest.maxCompleteItemCount": 20,
     "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"]
 }
