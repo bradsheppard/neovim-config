@@ -22,6 +22,7 @@
     "python.analysis.diagnosticMode": "workspace",
 	"suggest.maxCompleteItemCount": 20,
     "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+    "diagnostic.showUnused": false,
     "suggest.completionItemKindLabels": {
       "keyword": "\uf1de",
       "variable": "\ue79b",
