@@ -15,6 +15,8 @@ return require('packer').startup(function(use)
     use { 'junegunn/fzf', run = ":call fzf#install()" }
     use { 'junegunn/fzf.vim' }
 
+    use { 'embark-theme/vim', as = 'embark' }
+
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
 

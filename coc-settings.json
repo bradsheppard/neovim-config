@@ -20,6 +20,7 @@
 		"`"
 	],
     "python.analysis.diagnosticMode": "workspace",
+    "python.linting.pylintEnabled": true,
 	"suggest.maxCompleteItemCount": 20,
     "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
     "diagnostic.showUnused": false,
