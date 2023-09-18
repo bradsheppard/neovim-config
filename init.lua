@@ -18,6 +18,9 @@ require('airline')
 require('nvim-dap')
 require('nvim-dap-ui')
 require('fzf')
+--require('rust')
+--require('lsp')
+--require('completion')
 
 vim.g.python3_host_prog = '/home/brad/.pyenv/shims/python3'
 

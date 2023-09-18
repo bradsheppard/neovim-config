@@ -17,7 +17,8 @@
 		"{",
 		"'",
 		"\"",
-		"`"
+		"`",
+        "<"
 	],
     "python.analysis.diagnosticMode": "workspace",
     "python.linting.pylintEnabled": true,

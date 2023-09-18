@@ -1,6 +1,5 @@
 vim.g.coc_disable_transparent_cursor = 1
-vim.g.coc_global_extensions = {'coc-eslint', 'coc-go', 'coc-pyright', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-tailwindcss', 'coc-rust-analyzer', 'coc-pairs'}
-
+vim.g.coc_global_extensions = {'coc-eslint', 'coc-go', 'coc-pyright', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-tailwindcss', 'coc-pairs', 'coc-rust-analyzer'}
 
 -- Some servers have issues with backup files, see #649
 vim.opt.backup = false
@@ -107,10 +106,8 @@ keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
 -- Remap keys for apply code actions at the cursor position.
 keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
--- Remap keys for apply code actions affect whole buffer.
+-- Remap keys for apply source code actions for current file.
 keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
--- Remap keys for applying codeActions to the current buffer
-keyset("n", "<leader>ac", "<Plug>(coc-codeaction)", opts)
 -- Apply the most preferred quickfix action on the current line.
 keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
 
